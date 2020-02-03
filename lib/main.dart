@@ -8,13 +8,28 @@ class application extends StatefulWidget {
 }
 
 class _applicationState extends State<application> {
+
+  String ttext='';
+  @override
+  void initState() {
+    // TODO: implement initState
+    ttext="Click On This Button";
+    super.initState();
+  }
+
+  void method1(){
+    setState(() {
+      ttext="The Text is been changed";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Stateful Widget',
       home: new Scaffold(
         body: new Center(
-          child: new RaisedButton(onPressed: null,child: new Text('Raised Button'),),
+          child: new RaisedButton(onPressed: (){method1();},child: new Text(ttext),),
         ),
       ),
     );
